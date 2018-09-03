@@ -1,0 +1,48 @@
+<div class="container">
+ <div class="loginform col-sm-6">   
+    <form >
+  
+
+  
+      <h1>Login</h1>
+    <p>Already Existing users.</p>
+    <hr>
+    <b>Mobile no.</b>
+    <input ng-model="loguser.mobile" type="number" placeholder="Enter Mobile no." name="mobile" required>
+
+    <b>Password</b>
+    <input ng-model="loguser.password" type="password" placeholder="Enter Password" name="password" required>
+
+    <button ng-click="login()" class="btn">Login</button>
+   
+    
+  
+</form>
+     </div> 
+    
+    <div class="registerform col-sm-6">
+  <form >
+  
+    <h1>Sign Up</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+
+    <b>Mobile</b>
+    <input  ng-model="reguser.mobile" type="number" maxlength="10" placeholder="Enter Mobile no." name="mobile" required>
+
+    <b>Password</b>
+    <input ng-model="reguser.password" type="password" placeholder="Enter Password" name="password" required>
+
+    <b>Name</b>
+    <input ng-model="reguser.name" type="text" placeholder="Enter Name" name="name" required>
+    
+    <b>Address</b>
+    
+    <textarea ng-model="reguser.address" placeholder="Enter Address" name="address"></textarea>
+
+<button ng-click="register()" class="btn" type="submit">Register</button>
+   
+  
+</form>
+        </div>
+</div>

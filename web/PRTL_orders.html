@@ -1,0 +1,149 @@
+<div class="container">
+    
+<div class="col-sm-3">
+  <div class="list-group">
+    <a ng-click="pageid='place'" ng-class="{'activetab': pageid==='place'}"  class="btn">Place order</a>
+    <a ng-click="pageid='track'" ng-class="{'activetab': pageid==='track'}" class="btn">Track orders</a>
+    <a ng-click="pageid='settings'"  ng-class="{'activetab': pageid==='settings'}" class="btn">Account Settings</a>
+    <a ng-click="logout()" class="btn">Logout</a>
+  </div>
+</div>
+    
+ <div ng-switch="pageid" class="col-sm-9">   
+     
+     
+    <div ng-switch-when="place">
+        
+        <div class="col-sm-8">
+            
+            <h1>Confirm Your Order</h1>
+    <p>Please confirm your address and place order</p>
+    <table class="table">
+        <tr>
+            <td> <b>Name</b></td>
+            <td><input ng-model="user.name" type="text" placeholder="Enter Name" name="name" required></td>
+        </tr>
+        <tr>
+            <td><b>Mobile</b></td>
+            <td><input  ng-model="user.mobile" type="number" maxlength="10" placeholder="Enter Mobile no." name="mobile" required></td>
+        </tr>
+        <tr>
+            <td><b>Address</b></td>
+            <td><textarea ng-model="user.address" placeholder="Enter Address" name="address"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button ng-click="placeorder()" class="btn" type="submit">Place Order</button></td>
+        </tr>
+    </table>
+
+        </div>
+         
+    <div id="order-summary" class="box col-sm-4" >
+            <div class="box-header">
+              <h3 align="center">Order summary</h3>
+            </div>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Order subtotal</td>
+                    <th>{{subtotal}}</th>
+                  </tr>
+                  <tr>
+                    <td>Delivery charges</td>
+                    <th>{{delivery}}</th>
+                  </tr>
+                  <tr>
+                    <td>Tax</td>
+                    <th>{{tax}}</th>
+                  </tr>
+                  <tr class="total">
+                    <td>Total</td>
+                    <th>{{total}}</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div> 
+        
+    </div> 
+     
+     
+     
+     <div ng-switch-when="track">
+         
+         <h1>My Orders</h1>
+         <table class="table">
+             <tr>
+             <th>Order ID</th>
+             <th>Order Date</th>
+             <th>Total Bill</th>
+             <th>Order Status</th>
+             
+             </tr>
+             
+                 <tr ng-repeat="od in orders">
+                     <td>{{od.orderid}}</td>
+                     <td>{{od.date}}</td>
+                     <td>{{od.totalbill}}</td>
+                     <!--<td>{{od.status}}</td>-->
+                     <td>
+                        <div class="shipment">
+			
+                        <div class="confirm"><div class="imgcircle" ng-class="{'flowgreen':od.status=='R'||od.status=='A'||od.status=='P'||od.status=='D'||od.status=='C'}"><span class="glyphicon glyphicon-shopping-cart"></span></div>
+				<span class="line" ng-class="{'flowgreen':od.status=='A'||od.status=='P'||od.status=='D'||od.status=='C'}"></span><p>Requested</p></div>
+			
+                        <div class="process"><div class="imgcircle" ng-class="{'flowgreen':od.status=='A'||od.status=='P'||od.status=='D'||od.status=='C'}"><span class="glyphicon glyphicon-thumbs-up"></span></div>
+				<span class="line" ng-class="{'flowgreen':od.status=='P'||od.status=='D'||od.status=='C'}"></span><p>Accepted</p></div>
+			
+                        <div class="quality"><div class="imgcircle" ng-class="{'flowgreen':od.status=='P'||od.status=='D'||od.status=='C'}"><span class="glyphicon glyphicon-time"></span></div>
+				<span class="line" ng-class="{'flowgreen':od.status=='D'||od.status=='C'}"></span><p>Preparing</p></div>
+			
+                        <div class="dispatch"><div class="imgcircle" ng-class="{'flowgreen':od.status=='D'||od.status=='C'}"><span class="glyphicon glyphicon-send"></span></div>
+				<span class="line" ng-class="{'flowgreen':od.status=='C'}"></span><p>Dispatched</p></div>
+			
+                        <div class="delivery"><div class="imgcircle" ng-class="{'flowgreen':od.status=='C'}"><span class="glyphicon glyphicon-ok"></span></div>
+				<p>Completed</p></div>
+			
+                        </div>
+                            
+                     </td>
+                 </tr>
+             </tbody>
+         </table>
+         
+        
+	
+     </div>
+     
+     
+     
+     
+     
+    <div ng-switch-when="settings">
+         
+    <h1>Account Settings</h1>
+
+    <table class="table">
+        <tr>
+            <td><b>Change Password</b></td>
+            <td> <input  type="text" placeholder="Enter Old password" name="password" required>
+                <input ng-model="edituser.password"  type="text" placeholder="Enter New password" name="password" required></td>
+            <td><button class="btn">Change</button></td>
+        </tr>
+        <tr>
+            <td><b>Change Phone number</b></td>
+            <td><input  ng-model="edituser.mobile"  type="number" maxlength="10" placeholder="Enter New Mobile no." name="mobile" required></td>
+            <td><button class="btn" >Change</button></td>
+        </tr>
+        <tr>
+            <td><b>Change Address</b></td>
+            <td><textarea ng-model="edituser.address" placeholder="Enter New Address" name="address"></textarea></td>
+            <td><button class="btn">Change</button></td>
+        </tr>
+    </table>
+     </div>
+    
+    
+ </div>
+</div>

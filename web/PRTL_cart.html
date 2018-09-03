@@ -1,0 +1,65 @@
+
+<div class="container">
+<div class="checkout col-sm-9">
+            <form  action="#!/login">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th colspan="2">Product</th>
+                      <th>Quantity</th>
+                      <th>Unit price</th>
+                      <th colspan="2">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="cartitem in cartlist"> 
+                      <td><img  ng-src="images/items/{{cartitem.itemid}}.jpg" ></td>
+                      <td>{{cartitem.itemname}}</td>
+                      <td><input ng-model="cartitem.qty"  min="1" type="number" class="form-control"></td>
+                      <td>Rs. {{cartitem.itemprice}}</td>
+                      <td>{{cartitem.qty*cartitem.itemprice}}</td>
+                      <td><a ng-click="deletefromcart($index)" ><span class="glyphicon glyphicon-trash"></span></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+                <div class="right">
+                 
+                  <button type="submit" class="btn btn-outline-primary">Proceed to checkout <span class="glyphicon glyphicon-chevron-right"></span></button>
+                </div>
+              
+            </form>
+          </div>
+    
+    
+    <div id="order-summary" class="box col-sm-3">
+            <div class="box-header">
+              <h3 align="center">Order summary</h3>
+            </div>
+            <p class="text-muted">Delivery charges may apply.</p>
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <td>Order subtotal</td>
+                    <th>{{subtotal}}</th>
+                  </tr>
+                  <tr>
+                    <td>Delivery charges</td>
+                    <th>{{delivery}}</th>
+                  </tr>
+                  <tr>
+                    <td>Tax</td>
+                    <th>{{tax}}</th>
+                  </tr>
+                  <tr class="total">
+                    <td>Total</td>
+                    <th>{{total}}</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+</div>
