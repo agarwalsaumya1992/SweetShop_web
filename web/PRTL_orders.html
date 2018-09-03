@@ -16,8 +16,8 @@
         
         <div class="col-sm-8">
             
-            <h1>Confirm Your Order</h1>
-    <p>Please confirm your address and place order</p>
+            <h1>Confirm Address</h1>
+    <p>Please confirm your address before placing the order place order</p>
     <table class="table">
         <tr>
             <td> <b>Name</b></td>
@@ -32,7 +32,10 @@
             <td><textarea ng-model="user.address" placeholder="Enter Address" name="address"></textarea></td>
         </tr>
         <tr>
-            <td colspan="2"><button ng-click="placeorder()" class="btn" type="submit">Place Order</button></td>
+            <td colspan="2">
+                <p ng-show="cartlist.length==0" >Your cart is empty .Please add items from Our Menu list</p>
+                <button ng-hide="cartlist.length==0" ng-click="placeorder()" class="btn" type="submit">Place Order</button>
+            </td>
         </tr>
     </table>
 

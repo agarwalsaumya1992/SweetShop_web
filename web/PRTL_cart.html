@@ -1,9 +1,11 @@
 
 <div class="container">
+    
+    
 <div class="checkout col-sm-9">
-            <form  action="#!/login">
-              <div class="table-responsive">
-                <table class="table">
+    <p ng-show="cartlist.length==0" >Your cart is empty .Please add items from Our Menu list</p>
+            <form>
+                <table ng-hide="cartlist.length==0"  class="table">
                   <thead>
                     <tr>
                       <th colspan="2">Product</th>
@@ -21,15 +23,14 @@
                       <td>{{cartitem.qty*cartitem.itemprice}}</td>
                       <td><a ng-click="deletefromcart($index)" ><span class="glyphicon glyphicon-trash"></span></a></td>
                     </tr>
+                    
+                    <tr>
+                        <td colspan="6">
+                             <a href="#!/orders"  class="btn btn-outline-primary">Proceed to checkout <span class="glyphicon glyphicon-chevron-right"></span></a>
+                        </td>
+                    </tr>
                   </tbody>
                 </table>
-              </div>
-              
-                <div class="right">
-                 
-                  <button type="submit" class="btn btn-outline-primary">Proceed to checkout <span class="glyphicon glyphicon-chevron-right"></span></button>
-                </div>
-              
             </form>
           </div>
     
