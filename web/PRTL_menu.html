@@ -7,11 +7,13 @@
     <div class="row text-center">
         
       <div ng-repeat="item in menulist" class="col-sm-3">
-        <div class="thumbnail">
+          
+        <div class="thumbnail"> 
+            <div ng-show="item.qtyavailable===0" class="naoverlay"><p>NOT AVAILABLE</p></div>
           <img ng-src="images/items/{{item.itemid}}.jpg"  width="400" height="300">
           <p><strong>{{item.itemname}}</strong></p>
           <p>Rs. {{item.itemprice}}</p>
-          <button ng-click="addtocart(item)" class="btn">Add To Cart</button>
+          <button ng-hide="item.qtyavailable===0" ng-click="addtocart(item)" class="btn">Add To Cart</button>
         </div>
       </div>
     </div>

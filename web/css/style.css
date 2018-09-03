@@ -47,6 +47,18 @@
   }
   .bg-1 h3 {color: #fff;}
   
+  .naoverlay{
+      height: 94%;
+    width: 89%;
+    background-color: rgba(211, 211, 211, 0.75);
+    
+    position: absolute;
+  }
+  .naoverlay p{
+      font-size: 30px;
+          padding-top: 50%;
+  }
+  
   .thumbnail {
       padding: 0;
       border: none;
